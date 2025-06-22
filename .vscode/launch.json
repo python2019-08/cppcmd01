@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [ 
+        {
+            "name": "C++ Launch (WSL)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/cppcmd01",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "wslCompile", // 确保你有一个名为 wslCompile 的构建任务（见下一步）
+            "miDebuggerPath": "/usr/bin/gdb" // 根据你的 WSL 发行版调整 gdb 的路径
+        }
+    ]
+}
