@@ -8,6 +8,8 @@
 #include "test01/MyClock.h"
 
 #include <argparse/argparse.hpp>
+#include <math.h>
+#include <stdio.h>
 
 int parseArguments(int argc, char* argv[], bool& aPlayDogBark )
 {
@@ -48,10 +50,44 @@ int parseArguments(int argc, char* argv[], bool& aPlayDogBark )
 std::string testXXX(const int decimal)
 {
     return std::bitset<11>(decimal).to_string();
+
+}
+
+// ----output:
+// f01 = 7.5 % 2.5: 0.000000;i01= 7 % 2=1
+// f02 = fmod(7.5 , 2.0): 1.500000
+// f03 = fmod(-7.5 , 2.0): -1.500000;;i03= -7 % 2=-1
+// f04 = fmod(7.5 , -2.0): 1.500000;; i04= 7 % -2=1
+// f05 = fmod(-7.5 , -2.0): -1.500000;;i05= -7 % -2=-1
+void test_fmod()
+{
+    double f01 = fmod(7.5 , 2.5);
+    int i01= 7 % 2;
+    printf( "f01 = 7.5 % 2.5: %f;i01= 7 % 2=%d\n",f01,i01);
+
+    double f02 = fmod(7.5 , 2.0); 
+    printf( "f02 = fmod(7.5 , 2.0): %f\n",f02);
+
+
+    double f03 = fmod(-7.5 , 2.0);
+    int i03= -7 % 2;
+    printf("f03 = fmod(-7.5 , 2.0): %f;;i03= -7 % 2=%d\n",f03, i03);
+
+    double f04 = fmod(7.5 , -2.0);
+    int i04= 7 % -2;
+    printf( "f04 = fmod(7.5 , -2.0): %f;; i04= 7 % -2=%d\n",f04,i04);
+
+    double f05 = fmod(-7.5 , -2.0);
+    int i05= -7 % -2;
+    printf( "f05 = fmod(-7.5 , -2.0): %f;;i05= -7 % -2=%d\n",f05,i05);  
+    // -----------------------------
+
 }
 
 int main(int argc, char* argv[])
 {
+    test_fmod();
+
     std::string  xx = testXXX(777747);
     TestDerived01Class::testDerivedClass();
 
