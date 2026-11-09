@@ -8,6 +8,7 @@ LIST(APPEND  test02_Src
     src/TestObserver.cpp  
     src/TestRegex.cpp  
     src/test_shared_from_this.cpp
+    src/test_filesystem.cpp
 )
 # message(STATUS "..........test02_Src=${test02_Src}") 
 

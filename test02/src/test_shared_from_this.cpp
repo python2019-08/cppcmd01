@@ -2,8 +2,8 @@
 #include <memory>
 #include <string>
 #include <thread>
-//×÷Õß£º·çÂúÂ¥
-//Á´½Ó£ºhttps ://www.zhihu.com/question/30957800/answer/2920976448
+//ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½Â¥
+//ï¿½ï¿½ï¿½Ó£ï¿½https ://www.zhihu.com/question/30957800/answer/2920976448
 
 class Bar : std::enable_shared_from_this<Bar>
 {

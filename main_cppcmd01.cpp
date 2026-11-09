@@ -6,10 +6,16 @@
 #include "test01/threadpool00.h"
 #include "test01/TestDerived01Class.h"
 #include "test01/MyClock.h"
+#include "test02/src/trivial_construct.h"
+#include "test02/src/test_filesystem.h"
 
 #include <argparse/argparse.hpp>
 #include <math.h>
 #include <stdio.h>
+#include <type_traits> 
+#include <iostream>
+ 
+
 
 int parseArguments(int argc, char* argv[], bool& aPlayDogBark )
 {
@@ -83,9 +89,18 @@ void test_fmod()
     // -----------------------------
 
 }
+struct Widget {
+    Widget(int x) {} 
+    Widget( )=default; // 强制编译器生成默认构造函数，且它依然保持“平凡”属性
+};
+Widget w(11); //  
+static_assert(std::is_trivially_default_constructible_v<Widget>); // true
 
+ 
 int main(int argc, char* argv[])
 {
+    test_filesystem() ;
+
     test_fmod();
 
     std::string  xx = testXXX(777747);
